@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "CSS Class Audit",
+  "version": "1.0.0",
+  "description": "現在のページで使用されているCSSクラスと定義元CSSファイルを一覧化します。",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

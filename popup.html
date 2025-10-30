@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Class Audit</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 12px; width: 440px; }
+  button { padding: 6px 10px; }
+  pre { background: #f6f8fa; padding: 8px; max-height: 220px; overflow: auto; }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin: 8px 0; }
+  .badge { background:#eee; border-radius:999px; padding:2px 8px; }
+</style>
+<div class="row">
+  <button id="run">解析する</button>
+  <span id="status"></span>
+</div>
+<div class="row">
+  <span class="badge" id="count-used">used: -</span>
+  <span class="badge" id="count-css">css files: -</span>
+  <span class="badge" id="count-classes">defined classes: -</span>
+</div>
+<div>
+  <h3>結果プレビュー（先頭のみ）</h3>
+  <pre id="preview"></pre>
+</div>
+<div class="row">
+  <!-- 「ページ内で実際に使われていたクラス名の一覧」を記録するファイル。 -->
+  <button id="save-used">usedClasses.json</button>
+  <!-- 「各CSSファイルごとに、そこに定義されているクラス」をまとめたマップ。 -->
+  <button id="save-filemap">fileToClasses.json</button>
+  <!-- 「クラス名ごとに、定義されているCSSファイル」を逆引きでまとめたマップ。（＝fileToClasses.json の“逆”の構造） -->
+  <button id="save-index">cssIndex.json</button>
+</div>
+<script src="popup.js"></script>
